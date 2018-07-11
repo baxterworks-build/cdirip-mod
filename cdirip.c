@@ -48,7 +48,8 @@ track.position               = 0;
 
 // Opciones
 
-printf("CDIrip - (C) 2004 by DeXT/Lawrence Williams\n\n");
+printf("CDIrip - (C) 2004 by DeXT/Lawrence Williams\n");
+printf("modified v1 by fackue\n\n");
 
 flags.ask_for_image = true;
 flags.ask_for_dest_path = true;
@@ -441,32 +442,34 @@ struct buffer_s write_buffer;
 
      fseek(fsource, track->position, SEEK_SET);
 
+// begin changes by fackue
      if (track->mode == 0)
         {
         switch (opts->audio)
                {
                case RAW_FORMAT:
-                    sprintf(filename,STR_TAUDIO_RAW_FILENAME,track->global_current_track);
+                    sprintf(filename,STR_TAUDIO_RAW_FILENAME,image->global_current_session,track->global_current_track);
                     break;
                case CDA_FORMAT:
-                    sprintf(filename,STR_TAUDIO_CDA_FILENAME,track->global_current_track);
+                    sprintf(filename,STR_TAUDIO_CDA_FILENAME,image->global_current_session,track->global_current_track);
                     break;
                case AIFF_FORMAT:
-                    sprintf(filename,STR_TAUDIO_AIFF_FILENAME,track->global_current_track);
+                    sprintf(filename,STR_TAUDIO_AIFF_FILENAME,image->global_current_session,track->global_current_track);
                     break;
                case WAV_FORMAT:
                default:
-                    sprintf(filename,STR_TAUDIO_WAV_FILENAME,track->global_current_track);
+                    sprintf(filename,STR_TAUDIO_WAV_FILENAME,image->global_current_session,track->global_current_track);
                     break;
                }
         }
      else
         {
         if (flags->save_as_iso)
-              sprintf(filename,STR_TDATA_ISO_FILENAME,track->global_current_track);
+              sprintf(filename,STR_TDATA_ISO_FILENAME,image->global_current_session,track->global_current_track);
         else
-              sprintf(filename,STR_TDATA_BIN_FILENAME,track->global_current_track);
+              sprintf(filename,STR_TDATA_BIN_FILENAME,image->global_current_session,track->global_current_track);
         }
+// end changes by fackue
 
      fdest = fopen(filename,"wb");
 

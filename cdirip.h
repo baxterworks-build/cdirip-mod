@@ -59,15 +59,16 @@ void show_speed (unsigned long sector_size, LARGE_INTEGER Frequency, LARGE_INTEG
 
 // Strings
 
+// begin changes by fackue
 static char STR_TDISC_CUE_FILENAME   [ ] = "tdisc.cue";
-static char STR_TDISCN_CUE_FILENAME  [ ] = "tdisc%d.cue";
-static char STR_TAUDIO_RAW_FILENAME  [ ] = "taudio%02d.raw";
-static char STR_TAUDIO_WAV_FILENAME  [ ] = "taudio%02d.wav";
-static char STR_TAUDIO_CDA_FILENAME  [ ] = "taudio%02d.cda";
-static char STR_TAUDIO_AIFF_FILENAME [ ] = "taudio%02d.aiff";
-static char STR_TDATA_ISO_FILENAME   [ ] = "tdata%02d.iso";
-static char STR_TDATA_BIN_FILENAME   [ ] = "tdata%02d.bin";
-
+static char STR_TDISCN_CUE_FILENAME  [ ] = "s%dt%d.cue";
+static char STR_TAUDIO_RAW_FILENAME  [ ] = "s%02dt%02d.raw";
+static char STR_TAUDIO_WAV_FILENAME  [ ] = "s%02dt%02d.wav";
+static char STR_TAUDIO_CDA_FILENAME  [ ] = "s%02dt%02d.cda";
+static char STR_TAUDIO_AIFF_FILENAME [ ] = "s%02dt%02d.aiff";
+static char STR_TDATA_ISO_FILENAME   [ ] = "s%02dt%02d.iso";
+static char STR_TDATA_BIN_FILENAME   [ ] = "s%02dt%02d.bin";
+// end changes by fackue
 
 
 

@@ -1,24 +1,30 @@
 # Project: CDIrip
-# Makefile created by Dev-C++ 4.9.3.0
+# Makefile created by Dev-C++ 4.9.9.2
 
+CPP  = g++.exe
 CC   = gcc.exe
 WINDRES = windres.exe
 RES  = 
 OBJ  = cdirip.o buffer.o cdi.o common.o audio.o $(RES)
-LIBS =  -L"d:\archiv~1\Dev-C++\lib" -lcomdlg32 -lshell32
-INCS =  -I"d:\archiv~1\Dev-C++\include" 
+LINKOBJ  = cdirip.o buffer.o cdi.o common.o audio.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lcomdlg32 -lshell32 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
 BIN  = cdirip.exe
-CFLAGS = $(INCS)  -s -O2
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
 
-.PHONY: clean
+.PHONY: all all-before all-after clean clean-custom
 
-all: cdirip.exe
+all: all-before cdirip.exe all-after
 
-clean:
-	rm -f $(OBJ) $(BIN)
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CC) $(OBJ) -o $(BIN) $(RES) $(LIBS) $(CFLAGS)
+	$(CC) $(LINKOBJ) -o "cdirip.exe" $(LIBS)
 
 cdirip.o: cdirip.c 
 	$(CC) -c cdirip.c -o cdirip.o $(CFLAGS)
