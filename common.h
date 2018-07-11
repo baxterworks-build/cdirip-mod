@@ -53,3 +53,10 @@ typedef struct track_s
 void error_exit(long errcode, char *string);
 
 #endif
+
+/*Thank you to the very angry person at
+https://social.msdn.microsoft.com/Forums/vstudio/en-US/cf092a87-3256-4d02-81c6-57c707e71e13/unresolved-external-symbol-strncasecmp?forum=vcgeneral#d1d5cc90-0ce4-49d1-b583-82ecc4f653b1
+*/
+#if defined(WIN32) || defined(WIN64)
+#define strcasecmp _stricmp
+#endif /* Def WIN32 or Def WIN64 */
