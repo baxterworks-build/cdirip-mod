@@ -1,3 +1,23 @@
 image: Visual Studio 2017
+
 build:
   project: cdirip-mod.sln
+
+configuration:
+  - Release
+
+artifacts:
+  - path: x64
+    name: release-x64
+    type: zip
+    
+deploy:
+- provider: BinTray
+  username: voltagex
+  api_key:
+    secure: bzrH+GkoQs9xrme90cm9FucmUZr1/648+NU+7pKo2k3K13B2bfQV9q/TlwZmn5rt
+  subject: voltagex
+  repo: cdirip-mod
+  package: windows-x64
+  version: 1.6.3.1
+  publish: true
