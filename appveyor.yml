@@ -7,7 +7,7 @@ configuration:
   - Release
 
 artifacts:
-  - path: x64
+  - path: x64\Release\*.exe
     name: release-x64
     type: zip
     
@@ -21,3 +21,4 @@ deploy:
   package: windows-x64
   version: 1.6.3.1
   publish: true
+  override: true
